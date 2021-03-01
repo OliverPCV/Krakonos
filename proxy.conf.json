@@ -1,5 +1,5 @@
 {
-  "/EducanetWebik": {
+  "/api": {
     "target": "http://localhost:8080/EducanetWebik",
     "secure": false
   }

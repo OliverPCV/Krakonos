@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   jmeno = '';
   heslo = '';
   user: User[] = [];
-  url = 'api/users';
+  url = '/api/users';
 
   constructor(private router: Router, private http: HttpClient, private activatedRoute: ActivatedRoute) { }
 

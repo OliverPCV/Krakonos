@@ -11,10 +11,11 @@ import {Router} from '@angular/router';
 export class UsersComponent implements OnInit {
 
   users: User[] = [];
-  url = 'api/users/';
+  url = 'api/users/test';
+ //  {headers: {token: 'd3b62774-4260-4413-bec6-24ccd72638b9'}}
 
   constructor(private http: HttpClient, private router: Router) {
-    this.http.get(this.url).subscribe((data: User[]) => {
+    this.http.get(this.url, {headers: {token: 'd3b62774-4260-4413-bec6-24ccd72638b9'}}  ).subscribe((data: User[]) => {
       this.users = data;
     });
   }
@@ -27,7 +28,6 @@ export class UsersComponent implements OnInit {
 
   detaily(id: number) {
     this.router.navigate(['/user'], {queryParams: {id}});
-
   }
 
   ngOnInit() {

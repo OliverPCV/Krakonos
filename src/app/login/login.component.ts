@@ -13,10 +13,9 @@ export class LoginComponent implements OnInit {
   jmeno = '';
   heslo = '';
   user: User[] = [];
-  url = '/api/users';
+  url = '/api/users/login';
 
   constructor(private router: Router, private http: HttpClient, private activatedRoute: ActivatedRoute) { }
-
   ngOnInit() {
   }
 
@@ -25,12 +24,13 @@ export class LoginComponent implements OnInit {
       jmeno: this.jmeno,
       heslo: this.heslo
     }
-    this.http.post(this.url, body, {observe: 'response'}).subscribe((data) => {
-      console.log(data);
-      this.router.navigate(['/users']);
-
-
-    });
+    if (this.heslo === this.heslo) {
+      this.http.post(this.url, body, {observe: 'response'}).subscribe((data) => {
+        console.log(data.body);
+        this.router.navigate(['/users']);
+      });    } else {
+      console.log('Najdi doktora šéfe');
+    }
   }
 
 }
